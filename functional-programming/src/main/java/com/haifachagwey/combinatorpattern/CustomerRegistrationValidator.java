@@ -13,24 +13,46 @@ public interface CustomerRegistrationValidator extends Function<Customer, Valida
 //    ValidationResult apply(Customer customer);
 
 //    An implementation of CustomerRegistrationValidator functional interface
+
+//    static CustomerRegistrationValidator isEmailValid() {
+//        CustomerRegistrationValidator customerRegistrationValidator =
+//                customer -> customer.getEmail().contains("@") ? SUCCESS : EMAIL_NOT_VALID;
+//        return customerRegistrationValidator;
+//    }
+
     static CustomerRegistrationValidator isEmailValid() {
-        CustomerRegistrationValidator customerRegistrationValidator = customer -> customer.getEmail().contains("@") ?
-                SUCCESS : EMAIL_NOT_VALID;
+//        An implementation of CustomerRegistrationValidator functional interface
+//        Implementing CustomerRegistrationValidator interface using a lambda expression and returning an instance of this implementation
+        CustomerRegistrationValidator customerRegistrationValidator = customer -> {
+//            Implementing the apply method
+            if (customer.getEmail().contains("@")) {
+                return SUCCESS;
+            } else {
+                return EMAIL_NOT_VALID;
+            }
+        };
+        return customerRegistrationValidator;
+    };
+
+    static CustomerRegistrationValidator isPhoneNumberValid() {
+//        An implementation of CustomerRegistrationValidator functional interface
+//        Implementing CustomerRegistrationValidator interface using a lambda expression and returning an instance of this implementation
+        CustomerRegistrationValidator customerRegistrationValidator = customer -> customer.getPhoneNumber().startsWith("+0") ?
+//            Implementing the apply method
+                SUCCESS : PHONE_NUMBER_NOT_VALID;
         return customerRegistrationValidator;
     }
 
-    static CustomerRegistrationValidator isPhoneNumberValid() {
-        return customer -> customer.getPhoneNumber().startsWith("+0") ?
-                SUCCESS : PHONE_NUMBER_NOT_VALID;
-    }
-
     static CustomerRegistrationValidator isAdult() {
+//        An implementation of CustomerRegistrationValidator functional interface
+//        Implementing CustomerRegistrationValidator interface using a lambda expression and returning an instance of this implementation
         return customer -> Period.between(customer.getDateOfBirth(), LocalDate.now()).getYears() > 16 ?
                 SUCCESS : IS_NOT_AN_ADULT;
     }
 
     default CustomerRegistrationValidator and(CustomerRegistrationValidator other) {
         return customer -> {
+//            The "this" keyword within the interface point to the object of the class that implements the interface.
             ValidationResult result = this.apply(customer);
             return result.equals(SUCCESS) ? other.apply(customer) : result;
         };
