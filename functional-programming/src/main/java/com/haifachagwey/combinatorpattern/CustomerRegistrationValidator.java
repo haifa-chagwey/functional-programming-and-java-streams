@@ -21,8 +21,7 @@ public interface CustomerRegistrationValidator extends Function<Customer, Valida
 //    }
 
     static CustomerRegistrationValidator isEmailValid() {
-//        An implementation of CustomerRegistrationValidator functional interface
-//        Implementing CustomerRegistrationValidator interface using a lambda expression and returning an instance of this implementation
+//        Implementing the CustomerRegistrationValidator functional interface using a lambda expression and returning an instance of this implementation
         CustomerRegistrationValidator customerRegistrationValidator = customer -> {
 //            Implementing the apply method
             if (customer.getEmail().contains("@")) {
@@ -35,8 +34,7 @@ public interface CustomerRegistrationValidator extends Function<Customer, Valida
     };
 
     static CustomerRegistrationValidator isPhoneNumberValid() {
-//        An implementation of CustomerRegistrationValidator functional interface
-//        Implementing CustomerRegistrationValidator interface using a lambda expression and returning an instance of this implementation
+//        Implementing the CustomerRegistrationValidator functional interface using a lambda expression and returning an instance of this implementation
         CustomerRegistrationValidator customerRegistrationValidator = customer -> customer.getPhoneNumber().startsWith("+0") ?
 //            Implementing the apply method
                 SUCCESS : PHONE_NUMBER_NOT_VALID;
@@ -44,8 +42,7 @@ public interface CustomerRegistrationValidator extends Function<Customer, Valida
     }
 
     static CustomerRegistrationValidator isAdult() {
-//        An implementation of CustomerRegistrationValidator functional interface
-//        Implementing CustomerRegistrationValidator interface using a lambda expression and returning an instance of this implementation
+//        Implementing the CustomerRegistrationValidator functional interface using a lambda expression and returning an instance of this implementation
         return customer -> Period.between(customer.getDateOfBirth(), LocalDate.now()).getYears() > 16 ?
                 SUCCESS : IS_NOT_AN_ADULT;
     }
