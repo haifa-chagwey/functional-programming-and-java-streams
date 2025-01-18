@@ -15,16 +15,16 @@ public class Main {
 //        If valid we can store customer in db
 
 //        Using combinator pattern
-        CustomerRegistrationValidator customerRegistrationValidator =
-                CustomerRegistrationValidator.isEmailValid()
-                .and(isPhoneNumberValid())
-                .and(isAdult());
-        ValidationResult result = customerRegistrationValidator.apply(customer);
+//        CustomerRegistrationValidator customerRegistrationValidator =
+//                CustomerRegistrationValidator.isEmailValid();
+//                .and(isPhoneNumberValid())
+//                .and(isAdult());
+//        ValidationResult result = customerRegistrationValidator.apply(customer);
 
-//        ValidationResult result =
-//                CustomerRegistrationValidator.isEmailValid()
-//                        .and(isPhoneNumberValid())
-//                        .and(isAdult()).apply(customer);
+        ValidationResult result =
+                CustomerRegistrationValidator.isEmailValid()
+                        .and(isPhoneNumberValid())
+                        .and(isAdult()).apply(customer);
         System.out.println(result);
         if (result != ValidationResult.SUCCESS) {
             throw new IllegalStateException(result.name());

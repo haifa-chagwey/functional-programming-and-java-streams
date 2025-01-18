@@ -24,7 +24,7 @@ public class Filtering {
         List<Car> carsLessThan20k = cars.stream()
                 .filter(pricePredicate)
                 .filter(colorPredicate)
-                .collect(Collectors.toList());
+                .toList();
         carsLessThan20k.forEach(System.out::println);
     }
 

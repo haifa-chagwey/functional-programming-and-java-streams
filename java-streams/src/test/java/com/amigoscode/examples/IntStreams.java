@@ -6,9 +6,7 @@ import com.amigoscode.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class IntStreams {
 
@@ -29,21 +27,21 @@ public class IntStreams {
     // Loop through people using IntStream
     @Test
     public void rangeIteratingLists() throws Exception {
+//        We should not use IntStream.rangeClosed(0, people.size()) because it will throw IndexOutOfBoundsException
         List<Person> people = MockData.getPeople();
-//        IntStream.range(0, people.size()).forEach(value -> {
-//            System.out.println(people.get(value));
-//        });
         IntStream.range(0, people.size()).forEach(index -> {
             System.out.println(people.get(index));
         });
     }
 
     @Test
-    public void intStreamIterate()  {
+    public void intStreamIterate() {
         IntStream.iterate(0, i -> i + 2)
-                .limit( 10)
-                .forEach(System.out::println);
-//        DoubleStream
+                .limit( 5)
+                .forEach(System.out::println); // 0 2 4 6 8
+//        DoubleStream (Stream for double)
+//        LongStream (Stream for long)
 //        Stream.of()
     }
 }
+

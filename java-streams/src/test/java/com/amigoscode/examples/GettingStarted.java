@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 
 public class GettingStarted {
 
+//    Imperative to Functional Programming
+
     @Test
     public void imperativeApproach() throws IOException {
         // 1. Find people aged less or equal 18

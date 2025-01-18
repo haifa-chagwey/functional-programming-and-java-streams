@@ -3,7 +3,6 @@ package com.haifachagwey.combinatorpattern;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.function.Function;
-
 import static com.haifachagwey.combinatorpattern.CustomerRegistrationValidator.ValidationResult;
 import static com.haifachagwey.combinatorpattern.CustomerRegistrationValidator.ValidationResult.*;
 
