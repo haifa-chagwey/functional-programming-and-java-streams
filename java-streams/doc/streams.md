@@ -15,11 +15,31 @@ Use of Intermediate Operators: filter, map and reduce
 Use of Terminal Operators: collect, forEach, reduce
 
 ### Course content
-1. Getting started
-2. Working with Streams
-3. IntStreams  
-Methods of IntStreams class:  
-   public static IntStream range(int startInclusive, int endExclusive) {}
-4. Min and Max  
-   Optional<T> min(Comparator<? super T> comparator);
-5. Distinct & Sets
+1. **Getting Started With Streams:**
+   - Getting started 
+   - Working with Streams
+
+2. **IntStreams and other Stream Types**
+   - IntStreams  
+        public static IntStream range(int startInclusive, int endExclusive)  
+        public static IntStream rangeClosed(int startInclusive, int endInclusive)
+3. **Min and Max**
+   - Min and Max  
+        Optional<T> min(Comparator<? super T> comparator)
+4. **Removing Duplicates**
+   - Distinct & Sets
+5. **Filtering Data**
+   - Filtering
+6. **Transformations**
+   - Transformations Map & Reduce
+   - Transformations with FlatMap
+7. **Aggregate Functions**
+   - Statistics with streams
+   - Grouping Data
+8. **Sorting Elements and Objects**
+   - Sorting
+9. **Joining Strings**
+   - Joining strings
+10. **Understanding Streams**
+    - Understanding Streams
+    - How Streams work

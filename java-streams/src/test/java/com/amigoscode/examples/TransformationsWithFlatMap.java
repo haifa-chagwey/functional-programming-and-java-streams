@@ -5,9 +5,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TransformationsWithFlatMap {
 
@@ -24,12 +27,13 @@ public class TransformationsWithFlatMap {
 
     @Test
     public void withoutFlatMap() throws Exception {
-        // [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
-//        List<String> allNames = new ArrayList<>();
-//        arrayListOfNames
-//                .forEach(names -> allNames.addAll(names));
+//        [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
+
+//        Im
+
         List<String> allNames = new ArrayList<>();
         arrayListOfNames
+//                .forEach(names -> allNames.addAll(names));
                 .forEach(allNames::addAll);
         System.out.println(allNames);
     }
@@ -37,11 +41,25 @@ public class TransformationsWithFlatMap {
     @Test
     public void withFlatMap() throws Exception {
         // [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
+
+        Function<List<String>, Stream<? extends String>> listStreamFunction = list -> list.stream();
         List<String> allNames = arrayListOfNames
                 .stream()
-                .flatMap(List::stream)
+                .flatMap(listStreamFunction)
                 .collect(Collectors.toList());
         System.out.println(allNames);
+
+//        List<String> allNames = arrayListOfNames
+//                .stream()
+//                .flatMap(list -> list.stream())
+//                .collect(Collectors.toList());
+//        System.out.println(allNames);
+
+//        List<String> allNames = arrayListOfNames
+//                .stream()
+//                .flatMap(Collection::stream)
+//                .collect(Collectors.toList());
+//        System.out.println(allNames);
     }
 
     @Test
@@ -50,10 +68,11 @@ public class TransformationsWithFlatMap {
                 Optional.of("Amigos"),
                 Optional.of("Code")
         );
+        System.out.println(optionals);
+        Function<Optional<String>, Stream<? extends String>> stream = optional -> optional.stream();
         List<String> list = optionals.stream()
-                .flatMap(Optional::stream)
+                .flatMap(stream)
                 .collect(Collectors.toList());
         System.out.println(list);
     }
 }
-

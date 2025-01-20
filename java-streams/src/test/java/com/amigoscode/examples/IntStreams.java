@@ -6,6 +6,7 @@ import com.amigoscode.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 public class IntStreams {
