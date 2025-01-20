@@ -42,4 +42,3 @@ Use of Terminal Operators: collect, forEach, reduce
    - Joining strings
 10. **Understanding Streams**
     - Understanding Streams
-    - How Streams work

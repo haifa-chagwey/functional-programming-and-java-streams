@@ -16,14 +16,22 @@ public class UnderstandingStreams {
         List<String> emails = MockData.getPeople()
                 .stream()
                 .map(Person::getEmail)
+//                .collect(Collectors.toList())
+//                .collect(
+//                        () -> new ArrayList<>(),
+//                        (list, element) -> list.add(element),
+//                        (list1, list2) -> list1.addAll(list2)
+//                );
                 .collect(
                         ArrayList::new,
                         ArrayList::add,
                         ArrayList::addAll
                 );
+
         emails.forEach(System.out::println);
     }
 
+//    Streams will only work if we call a terminal operator, they are lazy # Eager: always executed
     @Test
     public void lazy() throws Exception {
         System.out.println(
@@ -41,7 +49,9 @@ public class UnderstandingStreams {
                             System.out.println("mapping price " + price);
                             return price + (price * .14);
                         })
+
                         .collect(Collectors.toList())
         );
     }
 }
+
