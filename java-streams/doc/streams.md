@@ -18,7 +18,6 @@ Use of Terminal Operators: collect, forEach, reduce
 1. **Getting Started With Streams:**
    - Getting started 
    - Working with Streams
-
 2. **IntStreams and other Stream Types**
    - IntStreams  
         public static IntStream range(int startInclusive, int endExclusive)  
@@ -30,6 +29,11 @@ Use of Terminal Operators: collect, forEach, reduce
    - Distinct & Sets
 5. **Filtering Data**
    - Filtering
+        Stream<T> filter(Predicate<? super T> predicate)
+        default Stream<T> takeWhile(Predicate<? super T> predicate)
+        default Stream<T> dropWhile(Predicate<? super T> predicate)
+        boolean allMatch(IntPredicate predicate)
+        boolean anyMatch(IntPredicate predicate)
 6. **Transformations**
    - Transformations Map & Reduce
    - Transformations with FlatMap

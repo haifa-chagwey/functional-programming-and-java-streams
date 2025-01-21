@@ -127,3 +127,8 @@ public class Main {
     }
 }
 ```
+### Java Util Function
+Predicate: boolean test(T t);
+Consumer: void accept(T t);
+Function: R apply(T t);
+Supplier: T get();
