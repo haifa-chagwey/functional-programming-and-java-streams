@@ -32,8 +32,8 @@ Use of Terminal Operators: collect, forEach, reduce
         Stream<T> filter(Predicate<? super T> predicate)
         default Stream<T> takeWhile(Predicate<? super T> predicate)
         default Stream<T> dropWhile(Predicate<? super T> predicate)
-        boolean allMatch(IntPredicate predicate)
-        boolean anyMatch(IntPredicate predicate)
+        boolean allMatch(Predicate<? super T> predicate)
+        boolean anyMatch(Predicate<? super T> predicate)
 6. **Transformations**
    - Transformations Map & Reduce
    - Transformations with FlatMap
@@ -46,3 +46,7 @@ Use of Terminal Operators: collect, forEach, reduce
    - Joining strings
 10. **Understanding Streams**
     - Understanding Streams
+
+
+filter -> predicate
+map    -> function

@@ -28,11 +28,13 @@ public class Filtering {
     @Test
     public void takeWhile() throws Exception {
         System.out.println("using filter");
-        Stream.of(2, 4, 6, 8, 9, 10, 12).filter(n -> n % 2 == 0)
+        Stream.of(2, 4, 6, 8, 9, 10, 12)
+                .filter(n -> n % 2 == 0)
                 .forEach(n -> System.out.print(n + " ")); // 2 4 6 8 10 12
         System.out.println();
         System.out.println("using take while");
-        Stream.of(2, 4, 6, 8, 9, 10, 12).takeWhile(n -> n % 2 == 0)
+        Stream.of(2, 4, 6, 8, 9, 10, 12)
+                .takeWhile(n -> n % 2 == 0)
 //                Take the number while the condition is met
                 .forEach(n -> System.out.print(n + " ")); // 2 4 6 8
     }
@@ -40,11 +42,13 @@ public class Filtering {
     @Test
     public void dropWhile() throws Exception {
         System.out.println("using filter");
-        Stream.of(2, 4, 6, 8, 9, 10, 12).filter(n -> n % 2 == 0)
+        Stream.of(2, 4, 6, 8, 9, 10, 12)
+                .filter(n -> n % 2 == 0)
                 .forEach(n -> System.out.print(n + " ")); // 2 4 6 8 10 12
         System.out.println();
         System.out.println("using dropWhile");
-        Stream.of(2, 4, 6, 8, 9, 10, 12).dropWhile(n -> n % 2 == 0)
+        Stream.of(2, 4, 6, 8, 9, 10, 12)
+                .dropWhile(n -> n % 2 == 0)
 //                Drop the number while the condition is met
                 .forEach(n -> System.out.print(n + " ")); // 9 10 12
     }
@@ -53,14 +57,22 @@ public class Filtering {
     public void findFirst() throws Exception {
 //        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 //        filter a value that is not in the array
-        int result = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).filter(n -> n == 50).findFirst().orElse(-1);
+//        int result = Arrays.stream(numbers).filter(n -> n == 50).findFirst().orElse(-1);
+        int result = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                .filter(n -> n == 50)
+                .findFirst()
+                .orElse(-1);
         System.out.println(result);
     }
 
     @Test
     public void findAny() throws Exception {
 //        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10};
-        int result = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).filter(n -> n == 50).findAny().orElse(-1);
+//        int result = Arrays.stream(numbers).filter(n -> n == 50).findAny().orElse(-1);
+        int result = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                .filter(n -> n == 50)
+                .findAny()
+                .orElse(-1);
         System.out.println(result);
     }
 

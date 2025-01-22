@@ -22,6 +22,7 @@ public class TransformationsMapAndReduce {
     void yourFirstTransformationWithMap() throws IOException {
         List<Person> people = MockData.getPeople();
 
+//        The Function takes a person and returns a personDTO
         Function<Person, PersonDTO> personDTOFunction = person -> new PersonDTO(
                 person.getId(),
                 person.getFirstName(),
@@ -30,27 +31,26 @@ public class TransformationsMapAndReduce {
         List<PersonDTO> dtos = people.stream()
                 .filter(person -> person.getAge() > 20)
                 .map(personDTOFunction)
-                .toList();
+                .collect(Collectors.toList());
         dtos.forEach(System.out::println);
 
-//        Using the map function of PersonDTO class
+//        Or Using the map function of PersonDTO class
 
-        Predicate<Person> personPredicate = person -> person.getAge() > 20;
 //        Function<Person, PersonDTO> personDTOFunction1 = person -> PersonDTO.map(person);
         Function<Person, PersonDTO> personDTOFunction1 = PersonDTO::map;
         List<PersonDTO> dtoList = people.stream()
-                .filter(personPredicate)
+                .filter(person -> person.getAge() > 20)
                 .map(personDTOFunction1)
-                .toList();
+                .collect(Collectors.toList());
     }
     @Test
     void mapToDoubleAndFindAverageCarPrice() throws IOException {
         List<Car> cars = MockData.getCars();
-        Double average= cars.stream().
-//                mapToDouble gives a stream of Double this means that it provides extra methods (the map function does not have an average function)
-                mapToDouble(Car::getPrice).
-                average().
-                orElse(0);
+        Double average= cars.stream()
+//                mapToDouble gives a stream of Double this means that it provides extra methods like the average method that does not exist in a stream.
+                .mapToDouble(Car::getPrice)
+                .average()
+                .orElse(0);
     }
 
     @Test
